@@ -236,3 +236,129 @@
                            "Message": "Failed to decode JWT token."
                        }
                    }  
+
+
+## Endpoint 4: /books/update
+
+   * Method: POST
+   * Description: Allows an admin to update the details of an existing book in the library, including author, title, and genre. Requires a valid admin JWT token for authorization.
+   * Request Parameters:
+
+       - Parameter 1: bookCode
+           * Type: string
+           * Description: Unique identifier for the book to be updated
+           * Required: Yes
+           * Example: 
+
+                 123AB
+   
+       - Parameter 2: author
+           * Type: string
+           * Description: New author of the book. If the author does not exist, a new entry will be.
+           * Required: Yes
+           * Example:
+
+                 Dr. Jose Rizal
+
+       - Parameter 3: title
+           * Type: string
+           * Description: New title of the book.
+           * Required: Yes
+           * Example:
+
+                 Noli Me Tangere
+
+       - Parameter 3: genre
+           * Type: string
+           * Description: New genre of the book
+           * Required: Yes
+           * Example:
+
+                 Fantasy
+        
+       - Parameter 4: token
+           * Type: string
+           * Description: A JWT token required for authentication. Only admins can update books.
+           * Required: Yes
+           * Example:
+
+                 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGlicmFyeS5vcmciLCJhdWQiOiJodHRwOi8vbGlicmFyeS5jb20iLCJpYXQiOjE3MzAxNjUwMjMsImV4cCI6MTczMDE2ODYyMywiZGF0YSI6eyJ1c2VyaWQiOiIxIiwibmFtZSI6ImFkbWluIiwiYWNjZXNzX2xldmVsIjoiYWRtaW4ifX0.Yyw03t-aNg_dY8Q0sA0QqFWH5L6DKwqz8_75ln7GlXo
+             
+   * Response:
+       - Success Response:
+           * Status Code: 200
+           * Response Body:
+             
+                 {
+                     "status": "success",
+                     "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGlicmFyeS5vcmciLCJhdWQiOiJodHRwOi8vbGlicmFyeS5jb20iLCJpYXQiOjE3MzAxNjUwMjMsImV4cCI6MTczMDE2ODYyMywiZGF0YSI6eyJ1c2VyaWQiOiIxIiwibmFtZSI6ImFkbWluIiwiYWNjZXNzX2xldmVsIjoiYWRtaW4ifX0.Yyw03t-aNg_dY8Q0sA0QqFWH5L6DKwqz8_75ln7GlXo"
+                 }
+
+           * new_token: string - A new JWT token generated upon successful addition of the book. This new token is valid for 1 hour.
+             
+       - Error Response:
+           - Access Denied (Non-Admin User)
+             * Status Code: 403
+             * Error Message:
+               
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Access Denied. Only admins can update books."
+                       }
+                   }
+               
+           - Invalid Token
+             * Status Code: 401
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Token is invalid or outdated."
+                       }
+                   }
+               
+           - Invalid Book Code
+             * Status Code: 404
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Invalid Book Code."
+                       }
+                   }
+
+           - No Fields to Update
+             * Status Code: 400
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "No fields to update."
+                       }
+                   }
+               
+           - Database Error
+             * Status Code: 500
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Error message from the database."
+                       }
+                   }
+
+           - Database Error
+             * Status Code: 401
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Failed to decode JWT token."
+                       }
+                   }
