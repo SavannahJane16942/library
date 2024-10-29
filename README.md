@@ -2,9 +2,9 @@
 
 ## Introduction
 
-  ### Overview: A brief description of your API and its purpose.
-  ### Authentication: Explain the authentication methods used (e.g., API keys, OAuth, basic auth).
-  ## Error Handling: Describe the error codes and response formats for different error scenarios.
+  * Overview: A brief description of your API and its purpose.
+  * Authentication: Explain the authentication methods used (e.g., API keys, OAuth, basic auth).
+  * Error Handling: Describe the error codes and response formats for different error scenarios.
       
 ## Endpoints
 
