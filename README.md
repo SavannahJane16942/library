@@ -8,7 +8,7 @@
       
 # Endpoints
 
-## Endpoint 1:     /user/register
+## Endpoint 1: /users/register
 
    * Method: POST
    * Description: Registers a new user in the system by saving their email, username, and password in the database.
@@ -75,7 +75,9 @@
                             "Message": "Registration failed."
                         }
                     }
-## Endpoint 1:     /user/login
+
+                
+## Endpoint 2: /users/login
 
    * Method: POST
    * Description: Authenticates a user by verifying their email and password. If successful, generates a JSON Web Token (JWT) for the user.
@@ -128,3 +130,91 @@
                        }
                    }
                
+
+
+## Endpoint 3: /books/add
+
+   * Method: POST
+   * Description: Allows an admin to add a new book to the library. Requires a valid admin JWT token for authorization.
+   * Request Parameters:
+   
+       - Parameter 1: author
+           * Type: string
+           * Description: The name of the author of the book. If the author does not exist, a new entry will be created.
+           * Required: Yes
+           * Example: William Shakespear
+
+       - Parameter 2: title
+           * Type: string
+           * Description: The title of the book.
+           * Required: Yes
+           * Example: Romeo and Juliet
+
+       - Parameter 3: genre
+           * Type: string
+           * Description: The genre of the book.
+           * Required: Yes
+           * Example: Fantasy/Romantic/Tragic
+        
+       - Parameter 4: token
+           * Type: string
+           * Description: A JWT token required for authentication. Only admins can add books.
+           * Required: Yes
+           * Example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+             
+   * Response:
+       - Success Response:
+           * Status Code: 200
+           * Response Body:
+             
+                 {
+                     "status": "success",
+                     "new_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                 }
+
+           * new_token: string - A new JWT token generated upon successful addition of the book. This new token is valid for 1 hour.
+             
+       - Error Response:
+           - Access Denied (Non-Admin User)
+             * Status Code: 403
+             * Error Message:
+               
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Access Denied. Only admins can add books."
+                       }
+                   }
+               
+           - Invalid Token
+             * Status Code: 401
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Token is invalid or outdated."
+                       }
+                   }
+               
+           - Database Error
+             * Status Code: 500
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Error message from the database."
+                       }
+                   }
+
+           - JWT Decoding Error
+             * Status Code: 401
+             * Error Message:
+              
+                   {
+                       "status": "fail",
+                       "data": {
+                           "Message": "Failed to decode JWT token."
+                       }
+                   }  
