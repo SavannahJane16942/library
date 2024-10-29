@@ -18,19 +18,25 @@
            * Type: string
            * Description: The email address of the user.
            * Required: Yes
-           * Example: savannahjaneducusin@gmail.com
+           * Example:
+
+                 savannahjaneducusin@gmail.com
              
        - Parameter 2: username
            * Type: string
            * Description: The desired username of the user.
            * Required: Yes
-           * Example: Saviee
+           * Example:
+           
+                 Saviee
 
        - Parameter 3: password
            * Type: string
            * Description: The password chosen by the user, which will be securely hashed before.
            * Required: Yes
-           * Example: p@$$w0rd!
+           * Example:
+
+                 p@$$w0rd!
              
    * Response:
        - Success Response:
@@ -87,13 +93,17 @@
            * Type: string
            * Description: The email address of the user.
            * Required: Yes
-           * Example: savannahjaneducusin@gmail.com
+           * Example:
+
+                 savannahjaneducusin@gmail.com
 
        - Parameter 2: password
            * Type: string
            * Description: The password for the user’s account.
            * Required: Yes
-           * Example: p@$$w0rd!
+           * Example:
+
+                 p@$$w0rd!
              
    * Response:
        - Success Response:
@@ -102,7 +112,7 @@
              
                  {
                      "status": "success",
-                     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGlicmFyeS5vcmciLCJhdWQiOiJodHRwOi8vbGlicmFyeS5jb20iLCJpYXQiOjE3MzAxNjUwMjMsImV4cCI6MTczMDE2ODYyMywiZGF0YSI6eyJ1c2VyaWQiOiIxIiwibmFtZSI6ImFkbWluIiwiYWNjZXNzX2xldmVsIjoiYWRtaW4ifX0.Yyw03t-aNg_dY8Q0sA0QqFWH5L6DKwqz8_75ln7GlXo"
                  }
 
            * token: string - A JWT token generated for the user. Valid for 1 hour for admin users and 2 hours for regular users.
@@ -142,25 +152,33 @@
            * Type: string
            * Description: The name of the author of the book. If the author does not exist, a new entry will be created.
            * Required: Yes
-           * Example: William Shakespear
+           * Example:
+
+                 William Shakespear
 
        - Parameter 2: title
            * Type: string
            * Description: The title of the book.
            * Required: Yes
-           * Example: Romeo and Juliet
+           * Example:
+
+                 Romeo and Juliet
 
        - Parameter 3: genre
            * Type: string
            * Description: The genre of the book.
            * Required: Yes
-           * Example: Fantasy/Romantic/Tragic
+           * Example:
+
+                 Fantasy/Romantic/Tragic
         
        - Parameter 4: token
            * Type: string
            * Description: A JWT token required for authentication. Only admins can add books.
            * Required: Yes
-           * Example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+           * Example:
+
+                 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGlicmFyeS5vcmciLCJhdWQiOiJodHRwOi8vbGlicmFyeS5jb20iLCJpYXQiOjE3MzAxNjUwMjMsImV4cCI6MTczMDE2ODYyMywiZGF0YSI6eyJ1c2VyaWQiOiIxIiwibmFtZSI6ImFkbWluIiwiYWNjZXNzX2xldmVsIjoiYWRtaW4ifX0.Yyw03t-aNg_dY8Q0sA0QqFWH5L6DKwqz8_75ln7GlXo
              
    * Response:
        - Success Response:
@@ -169,7 +187,7 @@
              
                  {
                      "status": "success",
-                     "new_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                     "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGlicmFyeS5vcmciLCJhdWQiOiJodHRwOi8vbGlicmFyeS5jb20iLCJpYXQiOjE3MzAxNjUwMjMsImV4cCI6MTczMDE2ODYyMywiZGF0YSI6eyJ1c2VyaWQiOiIxIiwibmFtZSI6ImFkbWluIiwiYWNjZXNzX2xldmVsIjoiYWRtaW4ifX0.Yyw03t-aNg_dY8Q0sA0QqFWH5L6DKwqz8_75ln7GlXo"
                  }
 
            * new_token: string - A new JWT token generated upon successful addition of the book. This new token is valid for 1 hour.
