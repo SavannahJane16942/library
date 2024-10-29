@@ -1530,5 +1530,5 @@
 
 
 ##
-         Savannah Jane Ducusin made with Love.
+         <center>Savannah Jane Ducusin made with Love.<center>
 ##
