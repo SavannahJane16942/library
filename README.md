@@ -10,7 +10,7 @@
 
 ## Endpoint 1: /users/register
 
-   * Method: POST
+   * Method: **POST**
    * Description: Registers a new user in the system by saving their email, username, and password in the database.
    * Request Parameters:
    
